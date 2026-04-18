@@ -1,4 +1,4 @@
-package com.oussma.Order.entity;
+package com.oussma.order.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,5 +13,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Sequence {
     @Id
     private String id;
-    private int sequence;
+    private int orderSequence;
 }

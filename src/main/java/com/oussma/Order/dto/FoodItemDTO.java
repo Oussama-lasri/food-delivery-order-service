@@ -1,4 +1,4 @@
-package com.oussma.Order.dto;
+package com.oussma.order.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

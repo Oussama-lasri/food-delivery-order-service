@@ -1,17 +1,17 @@
-package com.oussma.Order.service;
+package com.oussma.order.service;
 
 import org.springframework.stereotype.Service;
-
-import com.oussma.Order.dto.OrderDTO;
-import com.oussma.Order.dto.OrderDTOFromFE;
-import com.oussma.Order.dto.UserDTO;
-import com.oussma.Order.entity.Order;
-import com.oussma.Order.mapper.OrderMapper;
-import com.oussma.Order.repository.OrderRepository;
 
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.client.RestTemplate;
+
+import com.oussma.order.dto.OrderDTO;
+import com.oussma.order.dto.OrderDTOFromFE;
+import com.oussma.order.dto.UserDTO;
+import com.oussma.order.entity.Order;
+import com.oussma.order.mapper.OrderMapper;
+import com.oussma.order.repository.OrderRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -26,16 +26,14 @@ public class OrderService {
 
     public OrderDTO saveOrderInDb(OrderDTOFromFE orderDetails) {
         Integer newOrderID = sequenceGenerator.generateNextOrderId();
-        UserDTO userDTO = null; //fetchUserDetailsFromUserId(orderDetails.getUserId());
+        UserDTO userDTO = fetchUserDetailsFromUserId(orderDetails.getUserId());
         Order orderToBeSaved = new Order(newOrderID, orderDetails.getFoodItemsList(), orderDetails.getRestaurant(), userDTO );
         orderRepo.save(orderToBeSaved);
-//    	return null ;
 
         return orderMapper.mapOrderToOrderDTO(orderToBeSaved);
     }
 
     private UserDTO fetchUserDetailsFromUserId(Integer userId) {
-//    	return null ;
        return restTemplate.getForObject("http://USER-SERVICE/user/fetchUserById/" + userId, UserDTO.class);
     }
 }
