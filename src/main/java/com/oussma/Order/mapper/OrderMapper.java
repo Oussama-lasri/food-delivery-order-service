@@ -1,8 +1,9 @@
-package com.oussma.Order.mapper;
+package com.oussma.order.mapper;
 
-import com.oussma.Order.dto.OrderDTO;
-import com.oussma.Order.entity.Order;
 import org.mapstruct.Mapper;
+
+import com.oussma.order.dto.OrderDTO;
+import com.oussma.order.entity.Order;
 
 @Mapper(componentModel = "spring")
 public interface OrderMapper {

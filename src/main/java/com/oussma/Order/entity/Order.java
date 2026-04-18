@@ -1,13 +1,13 @@
-package com.oussma.Order.entity;
+package com.oussma.order.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.oussma.Order.dto.FoodItemDTO;
-import com.oussma.Order.dto.Restaurant;
-import com.oussma.Order.dto.UserDTO;
+import com.oussma.order.dto.FoodItemDTO;
+import com.oussma.order.dto.Restaurant;
+import com.oussma.order.dto.UserDTO;
 
 import java.util.List;
 
