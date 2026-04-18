@@ -10,10 +10,9 @@ eureka:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://admin:Azer2k20@atlas-cluster.axklmne.mongodb.net/?appName=Atlas-Cluster?retryWrites=true&w=majority # we replace by real db 
+      uri:  # we replace by real db url
       host: atlas-cluster.mqdj7js.mongodb.net
       port: 27017
       database: orderdb
       repositories:
         enabled: true
-
