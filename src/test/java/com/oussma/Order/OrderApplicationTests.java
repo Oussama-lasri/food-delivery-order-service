@@ -1,4 +1,4 @@
-package com.oussma.Order;
+package com.oussma.order;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
