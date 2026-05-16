@@ -2,6 +2,6 @@ server:
   port: 9094
 spring:
   profiles:
-    active: local
+    active: dev
   application:
     name: ORDER-SERVICE

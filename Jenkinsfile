@@ -23,7 +23,7 @@ pipeline {
 
     stage('SonarQube Analysis') {
   steps {
-    sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.host.url=http://18.169.104.7:9000/ -Dsonar.login=squ_f8a8dbeb91252263df21f33ab2f0e68ee07a8177'
+    sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.host.url=http://3.8.145.203:9000/ -Dsonar.login=squ_8482b20a85a908d384194dab6f059ccaab1059a4'
   }
 }
 
@@ -31,8 +31,8 @@ pipeline {
    stage('Check code coverage') {
             steps {
                 script {
-                    def token = "squ_f8a8dbeb91252263df21f33ab2f0e68ee07a8177"
-                    def sonarQubeUrl = "18.169.104.7:9000/api"
+                    def token = "squ_8482b20a85a908d384194dab6f059ccaab1059a4"
+                    def sonarQubeUrl = "3.8.145.203:9000/api"
                     def componentKey = "com.ousama:restaurantlisting"
                     def coverageThreshold = 80.0
 
@@ -80,7 +80,7 @@ pipeline {
          checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[ credentialsId: 'git-ssh', url: 'git@github.com:Oussama-lasri/deployment-folder.git']])
         script {
        sh '''
-          sed -i "s/image:.*/image: ousamalasri\\/restaurant-listing-service:${VERSION}/" AWS/restaurant-manifest.yml
+          sed -i "s/image:.*/image: ousamalasri\\/order-service:${VERSION}/" AWS/order-manifest.yml
         '''
           sh 'git checkout master'
           sh 'git add .'
